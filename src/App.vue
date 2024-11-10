@@ -19,9 +19,9 @@ barObjects.value.push({name: "name4", id: 4});
 <template>
   <main>
     <div>
-      <div v-for="bar in barObjects">
-        <BarPreview :bar-object="bar"/>
-      </div>
+        <!-- :key isn't required, but sometimes it prevents unnecessary re-renders and other conflicts -->
+        <!-- :key can be a string or some other (unique) value as well -->
+        <BarPreview v-for="bar in barObjects" :bar-object="bar" :key="bar.id"/>
     </div>
     <div class="box">
         <SubComponent1/>
